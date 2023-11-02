@@ -1,19 +1,36 @@
 .navbar {
 	background-color: rgb(128, 103, 101);
 	overflow: hidden;
+	display: block;
+	justify-content: center;
 }
 
 .navbar a {
-	float: right;
-	display: block;
 	color: #fff;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
 }
 
-.navbar a.pages:hover {
+.navbar a.pages {
+	float: left;
+	display: block;
+	text-decoration: none;
+}
+
+.centered-nav {
+	padding: 250px, 250px;
+}
+
+
+
+}	
+.navbar a:hover {
 	color: rgb(198, 198, 198);
+}
+
+.pages_right {
+	float: right;
 }
 
 .navbar a.logo {
@@ -63,4 +80,20 @@ body {
 	width: 40%;
 	height: 70%;
 	border-radius: 20px;
+}
+
+.content {
+	color: #fff;
+	font-size: large;
+	background-color: rgb(0, 0, 0, 0.5);
+	padding: 20px;
+	text-align: center;
+}
+
+ .content form {
+            text-align: center;
+        }
+
+.footer {
+	color: #fff;
 }

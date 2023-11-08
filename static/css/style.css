@@ -24,7 +24,7 @@
 
 
 
-}	
+	/* removed an independent bracket here*/
 .navbar a:hover {
 	color: rgb(198, 198, 198);
 }
@@ -40,8 +40,31 @@
 	font-size: large;
 }
 
+/* Style the login button */
+.Login-button, .Signup-button {
+	background-color: #0074cc;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	text-align: center;
+	float: right;
+	border: none;
+  	border-radius: 4px;
+  	padding: 10px 20px;
+	margin-right: 10px;
+	margin-top: 2px;
+  }
+
+
+  /* onHover styling Login-button & Signup-button  */
+.Login-button:hover, .Signup-button:hover {
+	background-color: #0056a4;
+	box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5); /* White box shadow for the button */
+}
+
 html, body {
 	height: 100%;
+	padding: 2px;
 }
 
 body {
@@ -54,33 +77,83 @@ body {
 }
 
 .centered-text {
-	position: absolute;
+	position: absolute; 
 	top: 50%;
 	left: 5px;
 	transform: translateY(-50%);
 	text-align: left;
 	color: #fff;
 	background-color: rgb(0, 0, 0, 0.5);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Box shadow with a slight blur and a light gray color */
 	padding: 20px;
 	border-radius: 10px;
 	width: 50%;
-	height: 27%;
+	height: 33%;
 }
 
 .centered-text p {
 	font-size: large;
 }
 
+/* Style the right-side container */
 .right-side {
 	position: absolute;
 	top: 50%;
 	right: 50px;
 	transform: translateY(-50%);
-	background-color: rgb(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.75);
 	width: 40%;
-	height: 70%;
+	height: 50%;
 	border-radius: 20px;
+	display: flex;
+	justify-content: center; /* Center content horizontally */
+	align-items: center; /* Center content vertically */
+  }
+
+/* Style the image to fit within the .slideshow-container and maintain aspect ratio */
+.right-image {
+	max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+	width: auto; /* Let the width adjust proportionally to the max-width and max-height */
+	height: 100%; /* Let the height adjust proportionally to the max-width and max-height */
 }
+
+.slideshow-container {
+	max-width: 100%;
+	max-width: 800px; /* Adjust the max width as needed */
+	border-radius: 20px; /* Add rounded corners to the container */
+  	overflow: hidden; /* Ensure the image stays within the rounded container */
+}
+
+/* Style the horizontal button container at the bottom */
+.horizontal-button {
+  text-align: center;
+  position: fixed;
+  bottom: 10px; /* Add a 10px margin from the bottom */
+  left: 0;
+  width: 100%;
+  background-color: #0074cc;
+  padding: 10px 0;
+  z-index: 2;
+}
+
+/* Style the horizontal button to be centered and 50% width */
+.horizontal-button button {
+  background-color: #0074cc;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 0; /* Adjust padding to center content vertically */
+  color: #fff;
+  cursor: pointer;
+  width: 100%; 
+  display: block; /* Allow setting width property */
+  margin: 0 auto; /* Center the button horizontally */
+}
+
+/* Add hover effect for the button */
+.horizontal-button button:hover {
+  background-color: #0056a4;
+}
+
 
 .content {
 	color: #fff;
@@ -90,10 +163,15 @@ body {
 	text-align: center;
 }
 
- .content form {
+.content form {
             text-align: center;
         }
 
 .footer {
 	color: #fff;
 }
+
+/* Clear floating elements to ensure proper layout */
+.clear {
+	clear: both;
+  }

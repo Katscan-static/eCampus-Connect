@@ -42,7 +42,7 @@
 
 /* Style the login button */
 .Login-button, .Signup-button {
-	background-color: #0074cc;
+	background-color: rgb(0,0,0,0.5);
 	border: none;
 	border-radius: 4px;
 	padding: 10px 20px;
@@ -58,7 +58,7 @@
 
   /* onHover styling Login-button & Signup-button  */
 .Login-button:hover, .Signup-button:hover {
-	background-color: #0056a4;
+	background-color: #333;
 	box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5); /* White box shadow for the button */
 }
 
@@ -124,35 +124,7 @@ body {
   	overflow: hidden; /* Ensure the image stays within the rounded container */
 }
 
-/* Style the horizontal button container at the bottom */
-.horizontal-button {
-  text-align: center;
-  position: fixed;
-  bottom: 10px; /* Add a 10px margin from the bottom */
-  left: 0;
-  width: 100%;
-  background-color: #0074cc;
-  padding: 10px 0;
-  z-index: 2;
-}
 
-/* Style the horizontal button to be centered and 50% width */
-.horizontal-button button {
-  background-color: #0074cc;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 0; /* Adjust padding to center content vertically */
-  color: #fff;
-  cursor: pointer;
-  width: 100%; 
-  display: block; /* Allow setting width property */
-  margin: 0 auto; /* Center the button horizontally */
-}
-
-/* Add hover effect for the button */
-.horizontal-button button:hover {
-  background-color: #0056a4;
-}
 
 
 .content {
@@ -168,10 +140,69 @@ body {
         }
 
 .footer {
-	color: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #333; /* Choose your desired background color */
+	color: #fff; /* Text color for the footer */
+	text-align: center; /* Center-align the text in the footer */
+	padding: 10px 0; /* Add some padding to the top and bottom for spacing */
+	z-index: 1; /* Ensure the footer appears above other content */
 }
 
 /* Clear floating elements to ensure proper layout */
 .clear {
 	clear: both;
   }
+  
+  
+ 
+@media only screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens here */
+	
+
+	
+	.centered-text {
+		width: 100%;
+	}
+
+	.right-side {
+		width: 100%;
+	}
+	
+	 
+	
+	.centered-text {
+	position: absolute; 
+	top: 50%;
+	left: 5px;
+	right: 5px;
+	transform: translateY(-50%);
+	text-align: center;
+	background-color: rgb(0, 0, 0, 0.5);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Box shadow with a slight blur and a light gray color */
+	padding: 20px;
+	border-radius: 10px;
+	width: auto;
+	height: auto;
+	}
+	
+	.right-side {
+		position: relative;
+        width: 100%;
+        margin-top: 40%;
+		margin-bottom: 30%;
+		left: 1px;
+        transform: none;
+        background-color: transparent;
+        border-radius: 0;
+        height: auto;
+    }
+	
+	navbar a {
+	font-size: small;
+	padding: 4px 6px;
+	}
+    /* Modify other styles as needed */
+}

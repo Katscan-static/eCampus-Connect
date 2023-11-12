@@ -1,6 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from hashlib import sha256
+from datetime import datetime
 
 uri = "mongodb+srv://madinganakn:Muhluri82129@ecampusconnect.ja8oeji.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -13,12 +14,13 @@ except Exception as e:
 
 mydb = client["eCampusConnect"]
 myusers = mydb["users"]
+mycontact = mydb["contact"]
 
 class DataHandler:
 
     def __init__(self, input_dict):
-        self.data = input_dict
-        self.pw_encrypt()
+        self.data = input_dict.to_dict()
+        self.data["created_at"] = datetime.now().isoformat()
         
     def check_email(self):
         checkuser = myusers.count_documents({"email": self.data["email"]})
@@ -45,3 +47,6 @@ class DataHandler:
             
     def insert(self):
         myusers.insert_one(self.data)
+    
+    def insert_contact(self):
+        mycontact.insert_one(self.data)

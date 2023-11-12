@@ -10,8 +10,9 @@ def home():
 @app.route("/login",methods = ['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        login = request.form.to_dict()
+        login = request.form
         login_DH = DataHandler(login)
+        login_DH.pw_encrypt()
         test = login_DH.pw_compare()
         return test
     return render_template('login.html')
@@ -19,8 +20,9 @@ def login():
 @app.route("/signup", methods = ['POST', 'GET'])
 def signup():
     if request.method == 'POST':
-        signup = request.form.to_dict()
+        signup = request.form
         signup_DH = DataHandler(signup)
+        signup_DH.pw_encrypt()
         if signup_DH.check_email():
             return render_template('signup.html', message = "User Already Exists Please login")
         signup_DH.insert()
@@ -31,7 +33,8 @@ def signup():
 def contact():
     if request.method == "POST":
         contact = request.form
-        print(contact)
+        contact_DH = DataHandler(contact)
+        contact_DH.insert_contact()
         return render_template('thankyou.html', contact = contact)
        
     return render_template('contact.html')
@@ -39,12 +42,6 @@ def contact():
 @app.route("/aboutus")
 def aboutus():
     return render_template('aboutus.html')
-    
-@app.route("/contact_us",methods = ['POST','GET'])
-def contact_us():
-    if request.method == "POST":
-        contact = request.form
-        print(contact)
     
 
 if __name__ == "__main__":

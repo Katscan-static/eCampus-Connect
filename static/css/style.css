@@ -71,7 +71,7 @@ body {
 	background-image: url('images/ticket-image.jpg');
 	background-size: 100% 100%;
 	background-position: center;
-	background-repeat: no-repeat;
+	background-repeat: `repeat;
 	margin: 0;
 	padding: 0;
 }
@@ -88,7 +88,7 @@ body {
 	padding: 20px;
 	border-radius: 10px;
 	width: 50%;
-	height: 33%;
+	height: auto;
 }
 
 .centered-text p {
@@ -203,6 +203,10 @@ body {
 	navbar a {
 	font-size: small;
 	padding: 4px 6px;
+	}
+	
+	.centered-text p {
+		font-size: medium;
 	}
     /* Modify other styles as needed */
 }

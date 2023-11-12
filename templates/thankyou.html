@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+	<div class="navbar">
+		<a href="/login" class="Login-button">Login</a>
+		<a href="/signup" class="Signup-button">Sign/Up</a>
+		<a href="/" class="logo">eCampus-Connect</a>
+		<a href="/contact" class="pages_right" >Contact</a>
+		<a href="/aboutus" class="pages_right">About Us</a>
+		<a href="/" class="pages_right">Home</a>
+	</div>
+	<div class="content">
+		<h1>Thank You for Contacting Us, {{ contact['name'] }}!</h1>
+		<p>We appreciate your message and will get back to you as soon as possible.<p>
+		<p>Our team is dedicated to providing excellent customer service, and we look forward to assisting you with your inquiries and needs.<p> 
+		<p>If you have any further questions or requests, please don't hesitate to reach out to us. Your satisfaction is our top priority.</p>
+	</div>
+	
+	<div class="footer">
+        &copy; 2023 eCampus-Connect. All rights reserved.
+    </div>
+</body>
+</html>

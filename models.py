@@ -48,7 +48,7 @@ class User(UserMixin):
             self.created_at = datetime.now().isoformat()
             user_data["created_at"] = self.created_at
 
-            if user_data["submit"] == "Send Message":
+            if 'submit' in user_data and user_data["submit"] == "Send Message":
                 self.message = user_data.get("message")
                 self.institution = user_data.get("institution")
 

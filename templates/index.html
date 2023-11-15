@@ -35,17 +35,17 @@
 					   </button>
    
 					   <!-- lOGO TEXT HERE -->
-					   <a href="index.html" class="navbar-brand">eCampus-Connect</a>
+					   <a href="#home" class="navbar-brand">eCampus-Connect</a>
 				  </div>
    
 				  <!-- MENU LINKS -->
 				  <div class="collapse navbar-collapse">
 					   <ul class="nav navbar-nav navbar-nav-first">
 							<li><a href="#home" class="smoothScroll">Home</a></li>
-							<li><a href="/templates/aboutus.html" class="smoothScroll">About</a></li>
-							<li><a href="#Event" class="smoothScroll">Events</a></li>
-							<li><a href="#Universities" class="smoothScroll">Universities</a></li>
-							<li><a href="/templates/contact.html" class="smoothScroll">Contacts</a></li>
+							<li><a href="#about" class="smoothScroll">About Us</a></li>
+							<li><a href="#event" class="smoothScroll">Events</a></li>
+							<li><a href="#universities" class="smoothScroll">Universities</a></li>
+							<li><a href="#contact" class="smoothScroll">Contact Us</a></li>
 					   </ul>
    
 					   <ul class="nav navbar-nav navbar-right">
@@ -86,6 +86,7 @@
 					   </div>
 					   
 				  </div>
+				  <p>{{message}}</p>
 			 </div>
 		</section>
    
@@ -240,8 +241,8 @@
 					   <div class="col-md-3 col-sm-6">
 							<!-- University Thumb -->
 							<div class="uni-thumb">
-								 <a href="/images/UCTlogo.jpg" class="image-popup">
-									  <img src="/images/UCTlogo.jpg" class="img-responsive" alt="University of Cape Town">
+								 <a href="{{ url_for('static', filename='css/images/UCTlogo.jpg') }}" class="image-popup">
+									  <img src="{{ url_for('static', filename='css/images/UCTlogo.jpg') }}" class="img-responsive" alt="University of Cape Town">
    
 									  <div class="uni-info">
 										   <h3>Our Partner</h3>
@@ -254,8 +255,8 @@
 					   <div class="col-md-3 col-sm-6">
 							<!-- University Thumb -->
 							<div class="uni-thumb">
-								 <a href="/images/wits.png" class="image-popup">
-									  <img src="/images/wits.png" class="img-responsive" alt="University of the Witwatersrand">
+								 <a href="{{ url_for('static', filename='css/images/wits.png') }}" class="image-popup">
+									  <img src="{{ url_for('static', filename='css/images/wits.png') }}" class="img-responsive" alt="University of the Witwatersrand">
    
 									  <div class="uni-info">
 										   <h3>Our Partner</h3>
@@ -268,8 +269,8 @@
 					   <div class="col-md-3 col-sm-6">
 							<!-- University Thumb -->
 							<div class="uni-thumb">
-								 <a href="/images/up.jpg" class="image-popup">
-									  <img src="/images/up.jpg" class="img-responsive" alt="University of Pretoria">
+								 <a href="{{ url_for('static', filename='css/images/up.jpg') }}" class="image-popup">
+									  <img src="{{ url_for('static', filename='css/images/up.jpg') }}" class="img-responsive" alt="University of Pretoria">
    
 									  <div class="uni-info">
 										   <h3>Our Partner</h3>
@@ -282,8 +283,8 @@
 					   <div class="col-md-3 col-sm-6">
 							<!-- University Thumb -->
 							<div class="uni-thumb">
-								 <a href="/images/uj.png" class="image-popup">
-									  <img src="/images/uj.png" class="img-responsive" alt="University of Johannesburg">
+								 <a href="{{ url_for('static', filename='css/images/uj.png') }}" class="image-popup">
+									  <img src="{{ url_for('static', filename='css/images/uj.png') }}" class="img-responsive" alt="University of Johannesburg">
    
 									  <div class="uni-info">
 										   <h3>Our Partner</h3>
@@ -312,21 +313,21 @@
 					   <div class="col-md-8 col-sm-8">
 						   
 							<!-- CONTACT FORM HERE -->
-							<form id="contact-form" role="form" action="#" method="post">
+							<form id="contact-form" role="form" action="" method="post">
 								 <div class="col-md-6 col-sm-6">
-									  <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+									  <input type="text" class="form-control" placeholder="Full Name" id="name" name="name" required="">
 								 </div>
    
 								 <div class="col-md-6 col-sm-6">
-									  <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+									  <input type="email" class="form-control" placeholder="Your Email" id="email" name="email" required="">
 								 </div>
    
 								 <div class="col-md-6 col-sm-6">
-									  <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+									  <input type="tel" class="form-control" placeholder="Your Phone" id="number" name="phone_number" required="">
 								 </div>
    
 								 <div class="col-md-6 col-sm-6">
-									  <select class="form-control" id="cf-budgets" name="cf-budgets">
+									  <select class="form-control" id="institution" name="institution">
 										   <option>University</option>
 										   <option>University of Cape Town</option>
 										   <option>University of the Witwatersrand</option>
@@ -338,7 +339,7 @@
 								 </div>
    
 								 <div class="col-md-12 col-sm-12">
-									  <textarea class="form-control" rows="6" placeholder="Your Enquiry" id="cf-message" name="cf-message" required=""></textarea>
+									  <textarea class="form-control" rows="6" placeholder="Your Enquiry" id="message" name="message" required=""></textarea>
 								 </div>
    
 								 <div class="col-md-4 col-sm-12">
@@ -464,9 +465,10 @@
 										   <!-- TAB PANES -->
 										   <div class="tab-content">
 												<div role="tabpanel" class="tab-pane fade in active" id="sign_up">
-													 <form action="signup" method="post">
+													 <form action="" method="post">
+														  
 														  <input type="text" class="form-control" name="name" placeholder="Name" required>
-														  <input type="telephone" class="form-control" name="Phone Number" placeholder="Phone Number" required>
+														  <input type="telephone" class="form-control" name="phone_number" placeholder="Phone Number" required>
 														  <input type="email" class="form-control" name="email" placeholder="Email" required>
 														  <input type="password" class="form-control" name="password" placeholder="Password" required>
 														  <input type="password" class="form-control" name="password" placeholder="Confirm Password" required>

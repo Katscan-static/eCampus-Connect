@@ -21,6 +21,7 @@ mycontact = mydb["contact"]
 
 class User_data:
     """Handles retrieval of user data."""
+    
 
     def __init__(self, user_id):
         """Initialize the User_data object."""

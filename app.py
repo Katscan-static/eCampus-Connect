@@ -85,7 +85,7 @@ def logout():
     Handle user logout.
     """
     logout_user()
-    return "Logged out"
+    return redirect(url_for('home'))
 
 
 @app.route('/dashboard')
@@ -94,8 +94,48 @@ def dashboard():
     """
     Render the dashboard accessible only to logged-in users.
     """
-    return "Dashboard - Only accessible to logged-in users"
+    return render_template("dashboard/index.html")
 
+@app.route('/timetable')
+@login_required
+def timetable():
+    """
+    Render the dashboard accessible only to logged-in users.
+    """
+    return render_template("dashboard/timetable.html")
+
+@app.route('/events')
+@login_required
+def events():
+    """
+    Render the dashboard accessible only to logged-in users.
+    """
+    return render_template("dashboard/events.html")
+    
+@app.route('/password')
+@login_required
+def password():
+    """
+    Render the dashboard accessible only to logged-in users.
+    """
+    return render_template("dashboard/password.html")
+    
+@app.route('/exam')
+@login_required
+def exam():
+    """
+    Render the dashboard accessible only to logged-in users.
+    """
+    return render_template("dashboard/exam.html")
+    
+
+@app.route('/index_ds')
+@login_required
+def index_ds():
+    """
+    Render the dashboard accessible only to logged-in users.
+    """
+    return redirect(url_for("dashboard"))
 
 if __name__ == '__main__':
     app.run(debug=True)

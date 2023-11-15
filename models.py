@@ -85,10 +85,19 @@ class User(UserMixin):
     def save_to_db(self):
         """Save user data to the appropriate collection."""
         if self.message is None:
+            self.rmv_submit_msg()
             myusers.insert_one(self.__dict__)
         else:
+            self.rmv_submit()
             mycontact.insert_one(self.__dict__)
 
     def get_id(self):
         """Return user email as the identifier."""
         return str(self.email)
+        
+    def rmv_submit_msg(self):
+        del self.submit
+        del self.message
+    
+    def rmv_submit(self):
+        del self.submit

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-from flask_login import LoginManager, login_user, UserMixin, login_required, logout_user
+from flask_login import LoginManager, login_user, UserMixin, login_required, logout_user, current_user
 
 
 from models import User, User_data
@@ -40,6 +40,8 @@ def home():
     GET Method:
     - Renders the home page.
     """
+    if current_user.is_authenticated:
+            return redirect(url_for("dashboard"))
     if request.method == 'POST':
         user_data = request.form.to_dict()
         user = User(user_data)
@@ -71,7 +73,9 @@ def login():
         if isinstance(user_checked, User):
             login_user(user_checked)
             return redirect(url_for("dashboard"))
-    return render_template('index.html', message=user_checked)
+        else:
+            return render_template('index.html', message=user_checked)
+    return redirect(url_for('home'))
 
 
 @app.route('/logout')

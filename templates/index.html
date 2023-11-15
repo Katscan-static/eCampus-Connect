@@ -86,7 +86,9 @@
 					   </div>
 					   
 				  </div>
-				  <p>{{message}}</p>
+				  <div class="col-md-6 col-sm-12">
+					<h2 style="color: red;">{{message}}</h2>
+				  </div>
 			 </div>
 		</section>
    
@@ -323,7 +325,7 @@
 								 </div>
    
 								 <div class="col-md-6 col-sm-6">
-									  <input type="tel" class="form-control" placeholder="Your Phone" id="number" name="phone_number" required="">
+									  <input type="tel" class="form-control" placeholder="Your Phone" id="number" name="phone_number" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required="">
 								 </div>
    
 								 <div class="col-md-6 col-sm-6">
@@ -468,19 +470,21 @@
 													 <form action="" method="post">
 														  
 														  <input type="text" class="form-control" name="name" placeholder="Name" required>
-														  <input type="telephone" class="form-control" name="phone_number" placeholder="Phone Number" required>
+														  <input type="tel" class="form-control" name="phone_number" placeholder="Phone Number" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
 														  <input type="email" class="form-control" name="email" placeholder="Email" required>
 														  <input type="password" class="form-control" name="password" placeholder="Password" required>
 														  <input type="password" class="form-control" name="password" placeholder="Confirm Password" required>
 														  <input type="submit" class="form-control" name="submit" value="Submit">
 													 </form>
 												</div>
+												
+												
    
 												<div role="tabpanel" class="tab-pane fade in" id="sign_in">
-													 <form action="login" method="post">
+													 <form action="/login" method="post">
 														  <input type="email" class="form-control" name="email" placeholder="Email" required>
 														  <input type="password" class="form-control" name="password" placeholder="Password" required>
-														  <input type="submit" class="form-control" name="submit" value="Submit">
+														  <input type="submit" class="form-control" name="submit" id="submit" value="Submit">
 														  <a href="https://forgotpage/">Forgot your password?</a>
 													 </form>
 												</div>

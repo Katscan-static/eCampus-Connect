@@ -192,6 +192,62 @@ aside .profile .top .profile-photo{
     border: 5px solid var(--color-light);
     transition: all 400ms ease;
 }
+
+aside .profile .info {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+aside .profile .info p {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+aside .profile .upload-section {
+    display: flex;
+    flex-direction: column; /* Align buttons in a column */
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem; /* Add some space between the info and buttons */
+}
+
+/* Upload section */
+aside .profile .upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+aside .profile .upload-section .file-label {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+aside .profile .upload-section .file-input {
+    display: none; /* Hide the file input */
+}
+
+aside .profile .upload-section .upload-btn {
+    background-color: var(--color-success);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+aside .profile .upload-section .button-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
 aside .profile .about p{
     padding-bottom: 1rem;
 }

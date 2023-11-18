@@ -33,6 +33,25 @@ class User_data:
         user_data = myusers.find_one(query)
         return user_data
 
+     # Add a method to retrieve the full name
+    def get_full_name(self):
+        user_data = self.query_user_by_id()
+        if user_data:
+            return user_data.get("name")
+        return None
+     # Add a method to retrieve the Email
+    def get_email(self):
+        user_data = self.query_user_by_id()
+        if user_data:
+            return user_data.get("email")
+        return None
+     # Add a method to retrieve the phone_number
+    def get_phone_number(self):
+        user_data = self.query_user_by_id()
+        if user_data:
+            return user_data.get("phone_number")
+        return None
+
 
 class User(UserMixin):
     """Represents a user object."""
@@ -42,6 +61,12 @@ class User(UserMixin):
         self.name = user_data.get("name")
         self.message = None
         self.submit = None
+
+        # Check if 'profile_picture' is present in user_data, use it; otherwise, set a default value
+        if 'profile_picture' in user_data:
+            self.profile_picture = user_data["profile_picture"]
+        else:
+            self.profile_picture = "default_profile_picture.jpg"
 
         if 'phone_number' in user_data:
             self.phone_number = user_data.get("phone_number")
@@ -55,6 +80,7 @@ class User(UserMixin):
         if 'password' in user_data:
             self.password = user_data["password"]
             self.pw_encrypt()
+
 
         print(self.__dict__)
 
@@ -93,8 +119,16 @@ class User(UserMixin):
             mycontact.insert_one(self.__dict__)
 
     def get_id(self):
-        """Return user email as the identifier."""
-        return str(self.email)
+        """Return a unique identifier for the user."""
+        # Check if 'email' is present, use it as the identifier
+        if hasattr(self, 'email') and self.email:
+            return str(self.email)
+        # If 'email' is not present, use another unique identifier (e.g., user ID)
+        elif hasattr(self, 'user_id') and self.user_id:
+            return str(self.user_id)
+        else:
+            # If no suitable identifier is found, return None
+            return None
         
     def rmv_submit_msg(self):
         del self.submit
@@ -102,3 +136,5 @@ class User(UserMixin):
     
     def rmv_submit(self):
         del self.submit
+        
+    

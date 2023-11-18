@@ -51,12 +51,23 @@
             <div class="profile">
                 <div class="top">
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg" alt="">
+                        <!-- Display the current profile picture -->
+                        <img src="{{ url_for('static', filename='css/upload/' + current_user.profile_picture) }}" alt="Profile Picture">
+                        {{ url_for('static', filename='css/upload/' + current_user.profile_picture) }}
                     </div>
+                    
                     <div class="info">
-                        <p>Hey, <b>Tino</b> </p>
+                        <p>Hey, <b>{{ full_name }}</b> </p>
                         <small class="text-muted">2023101125</small>
                     </div>
+                </div>
+                <div class="upload-section button-row">
+                    <!-- Use enctype="multipart/form-data" for file uploads -->
+                    <form method="post" action="{{ url_for('upload_profile_picture') }}" enctype="multipart/form-data">
+                        <label for="file-input" class="file-label">Browse</label>
+                        <input type="file" id="file-input" name="profile_picture" class="file-input">
+                        <button type="submit" class="upload-btn">Upload</button>
+                    </form>
                 </div>
                 <div class="about">
                     <h5>Programe</h5>
@@ -64,9 +75,9 @@
                     <h5>DOB</h5>
                     <p>04-Jul-1998</p>
                     <h5>Contact</h5>
-                    <p>+27 01 234 5678</p>
+                    <p>{{ phone_number }}</p>
                     <h5>Email</h5>
-                    <p>unknown@gmail.com</p>
+                    <p>{{ email }}</p>
                     <h5>Address</h5>
                     <p>Ghost town Road, <br /> Germiston, 1401 <br /> South Africa</p>
                 </div>
